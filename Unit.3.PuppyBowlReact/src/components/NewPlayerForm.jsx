@@ -6,6 +6,7 @@ export default function NewPlayerForm({ setPlayers }) {
     name: "",
     breed: "",
     status: "bench",
+    imageUrl: "" 
   });
 
   const handleSubmit = async (e) => {
@@ -14,6 +15,13 @@ export default function NewPlayerForm({ setPlayers }) {
       await addPuppy(formData);
       const updatedPlayers = await getPuppies();
       setPlayers(updatedPlayers);
+     
+      setFormData({
+        name: "",
+        breed: "",
+        status: "bench",
+        imageUrl: ""
+      });
     } catch (error) {
       console.error("Error adding player:", error);
     }
@@ -35,6 +43,12 @@ export default function NewPlayerForm({ setPlayers }) {
         value={formData.breed}
         onChange={(e) => setFormData({...formData, breed: e.target.value})}
         required
+      />
+      <input
+        type="url" 
+        placeholder="Image URL (optional)"
+        value={formData.imageUrl}
+        onChange={(e) => setFormData({...formData, imageUrl: e.target.value})}
       />
       <select
         value={formData.status}
