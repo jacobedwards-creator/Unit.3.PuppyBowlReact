@@ -70,3 +70,11 @@
   text-decoration: none;
   border-radius: 4px;
 }
+
+.player-details img {
+  max-width: 300px;  
+  max-height: 300px; 
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  margin: 10px 0;}
